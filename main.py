@@ -33,5 +33,10 @@ def cookie():
     req=requests.get('https://www.google.com/')
     return req.cookies.get_dict()
 
+@app.route('/cookie/analytics', methods=['GET', 'POST'])
+def cookie_analytics():
+    req=requests.get('https://analytics.google.com/analytics/web/?hl=fr#/p345017433/reports/reportinghub')
+    return req.text
+
 if __name__ == '__main__':
     app.run(debug=True)
