@@ -44,7 +44,7 @@ def cookie_analytics():
     return req.text
 
 kw_list = ["Blockchain"]
-pytrends.build_payload(kw_list, cat=0, timeframe='today 5-y', geo='', gprop='')
+pytrends.build_payload(kw_list, cat=0, timeframe='today 90-d', geo='', gprop='')
 
 
 @app.route('/trend', methods=["GET","POST"])
@@ -52,7 +52,7 @@ def googletrendchart():
     topic_1 = "Football"
     topic_2 = "Football américain"
     pytrends = TrendReq()
-    pytrends.build_payload(kw_list=[topic_1, topic_2], timeframe='today 5-y', geo='FR')
+    pytrends.build_payload(kw_list=[topic_1, topic_2], timeframe='today 90-d', geo='FR')
     df = pytrends.interest_over_time()
     
     data_topic_1 = df[topic_1].tolist()
